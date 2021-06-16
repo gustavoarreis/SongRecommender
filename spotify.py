@@ -7,7 +7,7 @@ def spotify_authentication():
     import spotipy
     import configparser
     cfg = configparser.RawConfigParser()
-    cfg.read('env\config.cfg')
+    cfg.read('config.cfg')
     SPOTIPY_CLIENT_ID = cfg.get('KEYS','client_id').strip('"')
     SPOTIPY_CLIENT_SECRET = cfg.get('KEYS','client_secret').strip('"')
     SPOTIPY_REDIRECT_URI = cfg.get('KEYS','redirect_uri').strip('"')
@@ -126,7 +126,10 @@ def enhanced_rec(df, features, show = 25):
     return df1
 
 def make_playlist(recs, song, features):
-    user = 'gustavoreis1995'
+    import configparser
+    cfg = configparser.RawConfigParser()
+    cfg.read('config.cfg')
+    user = cfg.get('KEYS','client_id').strip('"')
     sp_oauth = spotify_authentication()
     token_info = sp_oauth.get_cached_token()
     token = token_info['access_token']
