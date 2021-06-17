@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Song Recommender</h1>
+    <h4 style="text-align: center">So you chose {{song}}.</h4>
+    <h4 style="text-align: center">What do you like about this song?</h4>
+    <div style="text-align: center" class = "form">
+       <form align = "center" method="POST">
+        <input type="checkbox" id="danceability" name="danceability" value="danceability">
+        <label for="danceability">Danceability</label>
+        <input type="checkbox" id="energy" name="energy" value="energy">
+        <label for="energy">Energy</label>
+        <input type="checkbox" id="loudness" name="loudness" value="loudness">
+        <label for="loudness">Loudness</label>
+        <input type="checkbox" id="mode" name="mode" value="mode">
+        <label for="mode">Mode</label>
+        <input type="checkbox" id="speechiness" name="speechiness" value="speechiness">
+        <label for="speechiness">Speechiness</label>
+        <input type="checkbox" id="acousticness" name="acousticness" value="acousticness">
+        <label for="acousticness">Acousticness</label>
+        <input type="checkbox" id="instrumentalness" name="instrumentalness" value="instrumentalness">
+        <label for="instrumentalness">Instrumentalness</label>
+        <input type="checkbox" id="liveness" name="liveness" value="liveness">
+        <label for="liveness">Liveness</label>
+        <input type="checkbox" id="valence" name="valence" value="valence">
+        <label for="valence">Valence</label>
+        <input type="checkbox" id="tempo" name="tempo" value="tempo">
+        <label for="tempo">Tempo</label>
+        <input type="checkbox" id="key" name="key" value="key">
+        <label for="key">Key</label>
+        <input type="checkbox" id="time_signature" name="time_signature" value="time_signature">
+        <label for="time_signature">Time Signature</label>
+        <br><br>
+        <input href="/results/{{id}}/{{features}}" id = "/results/{{id}}/{{features}}" align = "center" type="submit" value="Submit Features">
+       </form>     
+</div>
+{% endblock %}

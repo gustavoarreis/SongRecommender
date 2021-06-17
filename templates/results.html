@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Song Recommender</h1>
+    <h4 style="text-align: center">So you chose {{song}}.</h4>
+    <h4 style="text-align: center">You like it for its {{features}}.</h4>
+    <h4 style="text-align: center">Try these tracks...</h4>
+    <div style="text-align: center" class = "form">
+        <form align = "center" method="POST">
+            <br><input align = "center" type="submit" value="Make me this playlist">
+        </form> 
+    <div style="text-align: center" class = "table">
+    <br><table align = "center">
+    {% for i in recs.index %}
+        <tr><td><a href="https://open.spotify.com/track/{{recs['id'][i]}}" id = "{{recs['id'][i]}}" >
+            {{ str(recs['name'][i] + " - " + recs['artists'][i]) }}
+        </a></td></tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

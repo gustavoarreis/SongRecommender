@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Song Recommender</h1>
+    <h4 style="text-align: center">Which song do you want your playlist based on?</h4>
+    <div style="text-align: center" class="form">
+        <form action='/' method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Search Song">
+        </form>
+    <br><table align = "center">
+    {% for i in search_results.index %}
+        <tr><td><a href="/search/{{search_results['id'][i]}}" id = "{{search_results['id'][i]}}" >
+            {{ str(search_results['name'][i] + " - " + search_results['artists'][i]) }}
+        </a></td></tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}
